@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zarafat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #message1, #message2, #message3, #message4 {
+            font-size: 24px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="message1">Melumatlariniz nicat terefinden çalinsin?</div>
+    <div id="message2"></div>
+    <div id="message3"></div>
+    <div id="message4"></div>
+
+    <script>
+        // İlk mesajı göstər
+        document.getElementById("message1").style.display = "block";
+
+        // 5 saniyə sonra ikinci mesajı göstərmək üçün
+        setTimeout(function() {
+            // İlk mesajı gizlət
+            document.getElementById("message1").style.display = "none";
+
+            // İkinci mesajı göstər
+            var userChoice = confirm("Evet ya Hayir?");
+            if (userChoice) {
+                document.getElementById("message2").innerText = "Yia, bana guveniyormusun? Sapsik!";
+            } else {
+                document.getElementById("message2").innerText = "Tawwakk geciyordum zaten, bilgilerini çaldım bile🥰";
+            }
+            document.getElementById("message2").style.display = "block";
+
+            // Üçüncü mesajı 5 saniyə sonra göstərmək üçün
+            setTimeout(function() {
+                document.getElementById("message2").style.display = "none";
+                document.getElementById("message3").innerText = "Zarafat deyil☠️";
+                document.getElementById("message3").style.display = "block";
+            }, 5000); // 5 saniyə sonra üçüncü mesaj
+
+            // Dördüncü mesajı 5 saniyə sonra göstərmək üçün
+            setTimeout(function() {
+                document.getElementById("message3").style.display = "none";
+                document.getElementById("message4").innerText = "Melumatlarinizin guvenligi icin nicatla iletisime gecin";
+                document.getElementById("message4").style.display = "block";
+            }, 5000); // 5 saniyə sonra dördüncü mesaj
+        }, 5000); // 5 saniyə sonra ikinci mesaj
+    </script>
+</body>
+</html>
